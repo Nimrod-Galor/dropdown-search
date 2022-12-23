@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./script.js"></script>
+    <title>select box with search option</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div id="clSearchDd" class="clSearchDd">
+            <input type="hidden" id="mt4sSelectedSymbol" name="mt4sSelectedSymbol" value="" />
+            <div id="searchWrapper" class="searchWrapper">
+                <input id="mt4SymbolSearch" name="mt4SymbolSearch" class="mt4SymbolSearch" placeholder="Pick a Pair..." onkeyup="updateFilter()" />
+                <span id="mt4sEl" class="el">^</span>
+            </div>
+            <div id="mt4Symbols" name="mt4Symbols" class="mt4Symbols hide">
+                <div id="currency" class="mt4sGroupTitle">Currencies</div>
+                <div id="mt4sGroup-currency" class="mt4sGroup">
+                    <div class="mt4sOption" data-symbolname="TRYBASK">TRYBASK</div>
+                    <div class="mt4sOption" data-symbolname="GBPTRY">GBP/TRY</div> 
+                    <div class="mt4sOption" data-symbolname="EURUSD">EUR/USD</div> 
+                    <div class="mt4sOption" data-symbolname="AUDJPY">AUD/JPY</div> 
+                    <div class="mt4sOption" data-symbolname="USDJPY">USD/JPY</div> 
+                    <div class="mt4sOption" data-symbolname="NZDJPY">NZD/JPY</div> 
+                    <div class="mt4sOption" data-symbolname="EURAUD">EUR/AUD</div> 
+                    <div class="mt4sOption" data-symbolname="GBPUSD">GBP/USD</div> 
+                    <div class="mt4sOption" data-symbolname="EURNZD">EUR/NZD</div> 
+                    <div class="mt4sOption" data-symbolname="GBPAUD">GBP/AUD</div> 
+                    <div class="mt4sOption" data-symbolname="USDRUB">USD/RUB</div> 
+                    <div class="mt4sOption" data-symbolname="GBPCAD">GBP/CAD</div> 
+                    <div class="mt4sOption" data-symbolname="GBPNZD">GBP/NZD</div> 
+                    <div class="mt4sOption" data-symbolname="USDSEK">USD/SEK</div> 
+                    <div class="mt4sOption" data-symbolname="GBPCHF">GBP/CHF</div> 
+                    <div class="mt4sOption" data-symbolname="USDSGD">USD/SGD</div> 
+                    <div class="mt4sOption" data-symbolname="USDNOK">USD/NOK</div> 
+                    <div class="mt4sOption" data-symbolname="USDCAD">USD/CAD</div> 
+                    <div class="mt4sOption" data-symbolname="USDMXN">USD/MXN</div> 
+                    <div class="mt4sOption" data-symbolname="NZDCHF">NZD/CHF</div> 
+                    <div class="mt4sOption" data-symbolname="EURDKK">EUR/DKK</div> 
+                    <div class="mt4sOption" data-symbolname="USDPLN">USD/PLN</div> 
+                    <div class="mt4sOption" data-symbolname="EURNOK">EUR/NOK</div> 
+                    <div class="mt4sOption" data-symbolname="EURHUF">EUR/HUF</div> 
+                    <div class="mt4sOption" data-symbolname="USDTRY">USD/TRY</div>
+                    <div class="mt4sOption" data-symbolname="EURSEK">EUR/SEK</div>
+                    <div class="mt4sOption" data-symbolname="AUDUSD">AUD/USD</div>
+                    <div class="mt4sOption" data-symbolname="USDDKK">USD/DKK</div>
+                    <div class="mt4sOption" data-symbolname="EURZAR">EUR/ZAR</div>
+                    <div class="mt4sOption" data-symbolname="USDHUF">USD/HUF</div>
+                    <div class="mt4sOption" data-symbolname="EURPLN">EUR/PLN</div>
+                    <div class="mt4sOption" data-symbolname="GBPSGD">GBP/SGD</div>
+                    <div class="mt4sOption" data-symbolname="USDILS">USD/ILS</div>
+                    <div class="mt4sOption" data-symbolname="USDCHF">USD/CHF</div>
+                    <div class="mt4sOption" data-symbolname="EURILS">EUR/ILS</div>
+                    <div class="mt4sOption" data-symbolname="EURTRY">EUR/TRY</div>
+                    <div class="mt4sOption" data-symbolname="AUDNZD">AUD/NZD</div>
+                    <div class="mt4sOption" data-symbolname="AUDCAD">AUD/CAD</div>
+                    <div class="mt4sOption" data-symbolname="EURJPY">EUR/JPY</div>
+                    <div class="mt4sOption" data-symbolname="EURCHF">EUR/CHF</div>
+                    <div class="mt4sOption" data-symbolname="EURGBP">EUR/GBP</div>
+                    <div class="mt4sOption" data-symbolname="NZDUSD">NZD/USD</div>
+                    <div class="mt4sOption" data-symbolname="CADCHF">CAD/CHF</div>
+                    <div class="mt4sOption" data-symbolname="GBPJPY">GBP/JPY</div>
+                    <div class="mt4sOption" data-symbolname="NZDCAD">NZD/CAD</div>
+                    <div class="mt4sOption" data-symbolname="CADJPY">CAD/JPY</div>
+                    <div class="mt4sOption" data-symbolname="EURCAD">EUR/CAD</div>
+                    <div class="mt4sOption" data-symbolname="CHFJPY">CHF/JPY</div>
+                    <div class="mt4sOption" data-symbolname="USDZAR">USD/ZAR</div>
+                    <div class="mt4sOption" data-symbolname="AUDCHF">AUD/CHF</div>
+                    <div class="mt4sOption" data-symbolname="USDCNH">USD/CNH</div>
+                </div>
+
+
+                <div id="stocks" class="mt4sGroupTitle">Stocks</div>
+                <div id="mt4sGroup-stocks" class="mt4sGroup">
+                    <div class="mt4sOption" data-symbolname="#TSLA">Tesla Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ADS.DE">Adidas AG</div>
+                    <div class="mt4sOption" data-symbolname="#BP.L">BP p.l.c.</div>
+                    <div class="mt4sOption" data-symbolname="#RDSA.L">Royal Dutch Shell plc</div>
+                    <div class="mt4sOption" data-symbolname="#VOW3.DE">Volkswagen AG</div>
+                    <div class="mt4sOption" data-symbolname="#VIRGING">Virgin Galactic Holdings</div>
+                    <div class="mt4sOption" data-symbolname="#COCA-COLA">The Coca-Cola Company</div>
+                    <div class="mt4sOption" data-symbolname="#BBVA.MC">Banco Bilbao Vizcaya Argentaria S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#BAYN.DE">Bayer Aktiengesellschaft</div>
+                    <div class="mt4sOption" data-symbolname="#BMW.DE">Bayerische Motoren Werke Aktiengesellschaft (BMW.DE)</div>
+                    <div class="mt4sOption" data-symbolname="#APPLE">Apple Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#NIO">Nio Inc</div>
+                    <div class="mt4sOption" data-symbolname="#AMAZON">Amazon.com</div>
+                    <div class="mt4sOption" data-symbolname="#GAM.MC">Siemens Gamesa Renewable Energy S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#PHIA.AS">Koninklijke Philips N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#CBK.DE">Commerzbank AG</div>
+                    <div class="mt4sOption" data-symbolname="#ASML.AS">ASML Holding N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#AT&T">AT&T Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#TEF.MC">Telefonica S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#HSBA.L">HSBC Holdings plc</div>
+                    <div class="mt4sOption" data-symbolname="#DAI.DE">Mercedes-Benz Group AG</div>
+                    <div class="mt4sOption" data-symbolname="#GROUPON">Groupon Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ALV.DE">Allianz SE</div>
+                    <div class="mt4sOption" data-symbolname="#BNP.PA">BNP Paribas SA</div>
+                    <div class="mt4sOption" data-symbolname="#ZOOM">Zoom video communications inc.</div>
+                    <div class="mt4sOption" data-symbolname="#UNA.AS">Unilever DR, Netherlands</div>
+                    <div class="mt4sOption" data-symbolname="#CS.PA">AXA SA</div>
+                    <div class="mt4sOption" data-symbolname="#SIE.DE">Siemens Aktiengesellschaft</div>
+                    <div class="mt4sOption" data-symbolname="#SPOTIFY">Spotify Technology S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#CMNWBANK">Commonwealth Bank of Australia</div>
+                    <div class="mt4sOption" data-symbolname="#SAN.MC">Banco Santander S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#TLRY">Tilray Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#WEIBO">Weibo Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#BATS.L">British American Tobacco p.l.c.</div>
+                    <div class="mt4sOption" data-symbolname="#VK.PA">Vallourec S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#FERRARI">Ferrari N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#DOORDASH">DoorDash Inc</div>
+                    <div class="mt4sOption" data-symbolname="#UPSTART">Upstart Holdings, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#GSK.L">GlaxoSmithKline plc</div>
+                    <div class="mt4sOption" data-symbolname="#VRX">Bausch Health Companies Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#WAL_MART">Walmart Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ALIBABA">Alibaba Group</div>
+                    <div class="mt4sOption" data-symbolname="#NOKIA.HE">Nokia Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#GM">General Motors Company</div>
+                    <div class="mt4sOption" data-symbolname="#SU.PA">Schneider Electric S.E.</div>
+                    <div class="mt4sOption" data-symbolname="#MNDI.L">Mondi plc</div>
+                    <div class="mt4sOption" data-symbolname="#CAT">Caterpillar Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AMERICAN_E">American Express</div>
+                    <div class="mt4sOption" data-symbolname="#SAF.PA">Safran SA</div>
+                    <div class="mt4sOption" data-symbolname="#COIN">Coinbase Global inc.</div>
+                    <div class="mt4sOption" data-symbolname="#LASVEGAS">Las Vegas Sands</div>
+                    <div class="mt4sOption" data-symbolname="#BIONTECH">BioNTech SE</div>
+                    <div class="mt4sOption" data-symbolname="#HP">HP Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#GE">General Electric Company</div>
+                    <div class="mt4sOption" data-symbolname="#WAYFAIR">Wayfair</div>
+                    <div class="mt4sOption" data-symbolname="#MODERNA">Moderna, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AML.L">Aston Martin Lagonda Global Holdings</div>
+                    <div class="mt4sOption" data-symbolname="#HMSO.L">Hammerson plc</div>
+                    <div class="mt4sOption" data-symbolname="#STLA.PA">Stellantis N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#DELTA">Delta Air Lines, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#SAP.DE">SAP SE</div>
+                    <div class="mt4sOption" data-symbolname="#DOMINOS">Domino's Pizza, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#PINTEREST">Pinterest Inc</div>
+                    <div class="mt4sOption" data-symbolname="#VISA">Visa Inc</div>
+                    <div class="mt4sOption" data-symbolname="#SUNRUN">Sunrun  Solar company</div>
+                    <div class="mt4sOption" data-symbolname="#TSCO.L">Tesco PLC</div>
+                    <div class="mt4sOption" data-symbolname="#NOVAVAX">Novavax, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#MICROVIS">Microvision Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#DTE.DE">Deutsche Telekom AG</div>
+                    <div class="mt4sOption" data-symbolname="#JP_MORGAN">JPMorgan Chase & Co.</div>
+                    <div class="mt4sOption" data-symbolname="#CISCO">Cisco Systems Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#MKS.L">Marks and Spencer Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#GS">Goldman Sachs Group Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ENG.MC">Enagas S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#JNJ">Johnson & Johnson</div>
+                    <div class="mt4sOption" data-symbolname="#AIR.PA">Airbus Group</div>
+                    <div class="mt4sOption" data-symbolname="#BERKSHIRE">Berkshire Hathaway Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#CHEVRON">Chevron Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#ARISTOCRAT">Aristocrat Leisure Limited</div>
+                    <div class="mt4sOption" data-symbolname="#CANADIANSO">Canadian Solar</div>
+                    <div class="mt4sOption" data-symbolname="#NIKE">NIKE Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#RIVIAN">Rivian Automotive, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#CITIGROUP">Citigroup Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#INTEL">Intel Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#AURORA">Aurora Cannabis Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#LEMONADE">Lemonade Inc</div>
+                    <div class="mt4sOption" data-symbolname="#ABI.BR">Anheuser-Busch InBev SA/NV</div>
+                    <div class="mt4sOption" data-symbolname="#DROPBOX">Dropbox Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#SQUARE">Square, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#IBM">International Business Machines Corporation (IBM)</div>
+                    <div class="mt4sOption" data-symbolname="#FACEBOOK">Facebook Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ROKU">Roku, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#GOOGLE">Alphabet Inc. (Google)</div>
+                    <div class="mt4sOption" data-symbolname="#AMD">AMD (Advanced Micro Devices)</div>
+                    <div class="mt4sOption" data-symbolname="#ITV.L">ITV plc</div>
+                    <div class="mt4sOption" data-symbolname="#VALE">Vale </div>
+                    <div class="mt4sOption" data-symbolname="#AIRBNB">Airbnb</div>
+                    <div class="mt4sOption" data-symbolname="#FIRSTSOLAR">First Solar</div>
+                    <div class="mt4sOption" data-symbolname="#NVDA">NVIDIA Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#BOEING">The Boeing Company</div>
+                    <div class="mt4sOption" data-symbolname="#TWILIO">Twilio</div>
+                    <div class="mt4sOption" data-symbolname="#ZSCALER">Zscaler Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AMERICAN_A">American Airlines Group</div>
+                    <div class="mt4sOption" data-symbolname="#BAB.L">Babcock International Group PLC</div>
+                    <div class="mt4sOption" data-symbolname="#CA.PA">Carrefour SA</div>
+                    <div class="mt4sOption" data-symbolname="#BT.A.L">BT Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#BESTBUY">Best Buy Co. Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#FRES.L">Fresnillo Plc</div>
+                    <div class="mt4sOption" data-symbolname="#TEN.MI">Tenaris S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#AZN.L">AstraZeneca plc</div>
+                    <div class="mt4sOption" data-symbolname="#LHA.DE">Deutsche Lufthansa AG</div>
+                    <div class="mt4sOption" data-symbolname="#VERIZON">Verizon Communications Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#EBAY">eBay Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ADM.L">Admiral Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#PRX.AS">Prosus N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#NTDOY">Nintendo Co. Ltd.</div>
+                    <div class="mt4sOption" data-symbolname="#PG">The Procter & Gamble Company</div>
+                    <div class="mt4sOption" data-symbolname="#BOOKING">Booking Holdings Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#GALP.LS">Galp Energia SGPS S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#MORGAN_STA">Morgan Stanley</div>
+                    <div class="mt4sOption" data-symbolname="#TEVA">Teva Pharmaceutical Industries</div>
+                    <div class="mt4sOption" data-symbolname="#USSTEEL">United States Steel Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#ABBVIE">AbbVie Inc</div>
+                    <div class="mt4sOption" data-symbolname="#QANTAS">Qantas Airways Limited</div>
+                    <div class="mt4sOption" data-symbolname="#UDEMY">Udemy, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#MASTERCARD">Mastercard Incorporated</div>
+                    <div class="mt4sOption" data-symbolname="#PAYPAL">PayPal Holdings Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#OKTA">Okta</div>
+                    <div class="mt4sOption" data-symbolname="#GLE.PA">Societe Generale Group</div>
+                    <div class="mt4sOption" data-symbolname="#REP.MC">Repsol S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#CNA.L">Centrica plc</div>
+                    <div class="mt4sOption" data-symbolname="#III.L">3i Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#CCL.L">Carnival Corporation & Plc</div>
+                    <div class="mt4sOption" data-symbolname="#EA">Electronic Arts Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AIG">American International Group</div>
+                    <div class="mt4sOption" data-symbolname="#SBRY.L">J Sainsbury plc</div>
+                    <div class="mt4sOption" data-symbolname="#DMC">DMC Global Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#PLUG">Plug Power Inc</div>
+                    <div class="mt4sOption" data-symbolname="#ABBOTT">Abbott Laboratories</div>
+                    <div class="mt4sOption" data-symbolname="#DEERE">Deere & Company</div>
+                    <div class="mt4sOption" data-symbolname="#GLEN.L">Glencore plc</div>
+                    <div class="mt4sOption" data-symbolname="#SALESFORCE">Salesforce.com Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#FEDEX">FedEx Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#ITX.MC">Industria de Diseno Textil S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#NFLX">Netflix Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#PSON.L">Pearson plc</div>
+                    <div class="mt4sOption" data-symbolname="#GAP">The Gap, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AAL.L">Anglo American plc</div>
+                    <div class="mt4sOption" data-symbolname="#A2MILK">The A2 milk company</div>
+                    <div class="mt4sOption" data-symbolname="#RWE.DE">RWE Aktiengesellschaft</div>
+                    <div class="mt4sOption" data-symbolname="#BDEV.L">Barratt Developments plc</div>
+                    <div class="mt4sOption" data-symbolname="#PEPSICO">PepsiCo, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#CGC">Canopy Growth Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#ILLUMINA">Illumina, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#FISKER">Fisker Inc</div>
+                    <div class="mt4sOption" data-symbolname="#LUCID">Lucid Group, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ABF.L">Associated British Foods plc</div>
+                    <div class="mt4sOption" data-symbolname="#BRBY.L">Burberry Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#EOAN.DE">E.ON SE</div>
+                    <div class="mt4sOption" data-symbolname="#ELILILLY">Eli Lilly and Company</div>
+                    <div class="mt4sOption" data-symbolname="#PSN.L">Persimmon plc</div>
+                    <div class="mt4sOption" data-symbolname="#SPM.MI">Saipem S.p.A.</div>
+                    <div class="mt4sOption" data-symbolname="#RBS.L">The Royal Bank of Scotland Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#DISNEY">The Walt Disney Company</div>
+                    <div class="mt4sOption" data-symbolname="#AF.PA">Air France-KLM SA</div>
+                    <div class="mt4sOption" data-symbolname="#KGF.L">Kingfisher plc</div>
+                    <div class="mt4sOption" data-symbolname="#TAIWANSM">Taiwan Semiconductor Manufacturing Company Limited</div>
+                    <div class="mt4sOption" data-symbolname="#AV.L">Aviva plc</div>
+                    <div class="mt4sOption" data-symbolname="#EXPEDIA">Expedia Group, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#TEL.OL">Telenor ASA</div>
+                    <div class="mt4sOption" data-symbolname="#TPK.L">Travis Perkins plc</div>
+                    <div class="mt4sOption" data-symbolname="#ANTO.L">Antofagasta plc</div>
+                    <div class="mt4sOption" data-symbolname="#APPLIEDMAT">Applied Materials Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ISP.MI">Intesa Sanpaolo S.p.A.</div>
+                    <div class="mt4sOption" data-symbolname="#BA.L">BAE Systems plc</div>
+                    <div class="mt4sOption" data-symbolname="#CRONOS">Cronos Group Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ROBLOX">Roblox Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#FREEPORT">Freeport-McMoRan Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#COSTCO">Costco Wholesale Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#ROBINHOOD">Robinhood Markets, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ZILLOW">Zillow Group, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ALTRIA">Altria Group Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#HL.L">Hargreaves Lansdown plc</div>
+                    <div class="mt4sOption" data-symbolname="#AKAMAI">Akamai Technologies Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#DOW">Dow Inc</div>
+                    <div class="mt4sOption" data-symbolname="#MICROSOFT">Microsoft Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#GAS.MC">Naturgy Energy Group S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#AUTODESK">Autodesk  Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#DPW.DE">Deutsche Post AG</div>
+                    <div class="mt4sOption" data-symbolname="#NEWCREST">Newcrest Mining Limited</div>
+                    <div class="mt4sOption" data-symbolname="#STAN.L">Standard Chartered PLC</div>
+                    <div class="mt4sOption" data-symbolname="#BEYONDMEAT">Beyond Meat, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#BN.PA">Danone S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#JMAT.L">Johnson Matthey Plc</div>
+                    <div class="mt4sOption" data-symbolname="#VOD.L">Vodafone Group Plc</div>
+                    <div class="mt4sOption" data-symbolname="#CHARGEPT">ChargePoint, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#NXT.L">NEXT plc</div>
+                    <div class="mt4sOption" data-symbolname="#ULVR.L">The Unilever Group</div>
+                    <div class="mt4sOption" data-symbolname="#BHPGROUP">BHP Billiton</div>
+                    <div class="mt4sOption" data-symbolname="#BLND.L">British Land Company Plc</div>
+                    <div class="mt4sOption" data-symbolname="#ENI.MI">Eni S.p.A.</div>
+                    <div class="mt4sOption" data-symbolname="#WTB.L">Whitbread PLC</div>
+                    <div class="mt4sOption" data-symbolname="#TREASURYW">Treasury Wine Estates</div>
+                    <div class="mt4sOption" data-symbolname="#AHT.L">Ashtead Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#LENDLEASE">Lendlease Group</div>
+                    <div class="mt4sOption" data-symbolname="#STARBUCKS">Starbucks Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#BARC.L">Barclays PLC</div>
+                    <div class="mt4sOption" data-symbolname="#GILEAD">Gilead Sciences, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#IMB.L">Imperial Brands PLC</div>
+                    <div class="mt4sOption" data-symbolname="#JHARDIE">James Hardie Industries plc</div>
+                    <div class="mt4sOption" data-symbolname="#PALANTIR">Palantir Technologies Inc</div>
+                    <div class="mt4sOption" data-symbolname="#SL.L">Standard Life Aberdeen plc</div>
+                    <div class="mt4sOption" data-symbolname="#SGE.L">The Sage Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#BAS.DE">BASF SE</div>
+                    <div class="mt4sOption" data-symbolname="#BOA">Bank of America Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#FORD">Ford Motor Company</div>
+                    <div class="mt4sOption" data-symbolname="#PRU.L">Prudential plc</div>
+                    <div class="mt4sOption" data-symbolname="#HOMEDEPOT">The Home Depot Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#CAPITALONE">Capital One Financial Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#PFIZER">Pfizer Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ROYAL_CARB">Royal Caribbean Cruises Ltd.</div>
+                    <div class="mt4sOption" data-symbolname="#XIAOMI">Xiaomi Corp</div>
+                    <div class="mt4sOption" data-symbolname="#YANDEX">Yandex N.V.</div>
+                    <div class="mt4sOption" data-symbolname="#EZJ.L">EasyJet plc</div>
+                    <div class="mt4sOption" data-symbolname="#INF.L">Informa plc</div>
+                    <div class="mt4sOption" data-symbolname="#SEB-A.ST">Skandinaviska Enskilda Banken AB</div>
+                    <div class="mt4sOption" data-symbolname="#LLOY.L">Lloyds Banking Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#LOCKHEEDM">Lockheed Martin Corp.</div>
+                    <div class="mt4sOption" data-symbolname="#MICRON">Micron Technology, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#RIO.L">Rio Tinto Group</div>
+                    <div class="mt4sOption" data-symbolname="#EXPN.L">Experian plc</div>
+                    <div class="mt4sOption" data-symbolname="#LAND.L">Land Securities Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#LSE.L">London Stock Exchange Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#UPS">United Parcel Service</div>
+                    <div class="mt4sOption" data-symbolname="#COLGATE">Colgate-Palmolive Company</div>
+                    <div class="mt4sOption" data-symbolname="#COMCAST">Comcast Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#IBE.MC">Iberdrola S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#LOWES">Lowe's Companies Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#SNAPCHAT">Snap Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#UBER">Uber Technologies Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#WOOLWORTHS">Woolworths Group Limited</div>
+                    <div class="mt4sOption" data-symbolname="#BRISTOLMYE">Bristol-Myers Squibb Company</div>
+                    <div class="mt4sOption" data-symbolname="#RR.L">Rolls-Royce Holdings plc</div>
+                    <div class="mt4sOption" data-symbolname="#HEINTZ">The Kraft Heinz Company</div>
+                    <div class="mt4sOption" data-symbolname="#XPENG">XPeng Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AUSNZBANK">Australia and New Zealand Banking Group Limited</div>
+                    <div class="mt4sOption" data-symbolname="#QBE">QBE Insurance Group Ltd</div>
+                    <div class="mt4sOption" data-symbolname="#WESTPAC">Westpac Banking Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#MACQUARIE">Macquarie Group Limited</div>
+                    <div class="mt4sOption" data-symbolname="#MERCK">Merck & Co. Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#WALGREENS">Walgreens Boots Alliance, Inc</div>
+                    <div class="mt4sOption" data-symbolname="#BAIDU">Baidu Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#BNZL.L">Bunzl plc</div>
+                    <div class="mt4sOption" data-symbolname="#COLES">Coles Group Limited</div>
+                    <div class="mt4sOption" data-symbolname="#NDA-SEK.ST">Nordea Bank Abp</div>
+                    <div class="mt4sOption" data-symbolname="#ADOBE">Adobe Systems Inc</div>
+                    <div class="mt4sOption" data-symbolname="#CPI.L">Capita plc</div>
+                    <div class="mt4sOption" data-symbolname="#DBK.DE">Deutsche Bank Aktiengesellschaft</div>
+                    <div class="mt4sOption" data-symbolname="#DGE.L">Diageo plc</div>
+                    <div class="mt4sOption" data-symbolname="#DUPONT">DuPont de Nemours, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AD.AS">Koninklijke Ahold Delhaize NV</div>
+                    <div class="mt4sOption" data-symbolname="#IAG.L">International Consolidated Airlines Group S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#LGEN.L">Legal & General Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#NG.L">National Grid plc</div>
+                    <div class="mt4sOption" data-symbolname="#UNIONPAC">Union Pacific Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#UAL">United Airlines Holdings</div>
+                    <div class="mt4sOption" data-symbolname="#EXXONMOBIL">Exxon Mobil Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#GPRO">GoPro Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#KINDERMORG">Kinder Morgan, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ELE.MC">Endesa S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#SN.L">Smith & Nephew plc</div>
+                    <div class="mt4sOption" data-symbolname="#WELLSFARGO">Wells Fargo & Company</div>
+                    <div class="mt4sOption" data-symbolname="#CPG.L">Compass Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#KIMBERLYC">Kimberly-Clark Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#MCDONALDS">McDonald's Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#SMIN.L">Smiths Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#UU.L">United Utilities Group PLC</div>
+                    <div class="mt4sOption" data-symbolname="#WPP.L">WPP plc</div>
+                    <div class="mt4sOption" data-symbolname="#SDR.L">Schroders plc</div>
+                    <div class="mt4sOption" data-symbolname="#CARLISLE">CSL Limited</div>
+                    <div class="mt4sOption" data-symbolname="#SSE.L">SSE plc</div>
+                    <div class="mt4sOption" data-symbolname="#ESTEELAUD">The Estée Lauder Companies Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#WOODSIDE">Woodside Petroleum Ltd</div>
+                    <div class="mt4sOption" data-symbolname="#G.MI">Assicurazioni Generali S.p.A.</div>
+                    <div class="mt4sOption" data-symbolname="#MC.PA">LVMH Moët Hennessy - Louis Vuitton, Société Européenne</div>
+                    <div class="mt4sOption" data-symbolname="#RAMSAYHC">Ramsay Health Care</div>
+                    <div class="mt4sOption" data-symbolname="#THERMOFISH">Thermo Fisher Scientific Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#AMA.MC">Amadeus IT Group, S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#RB.L">Reckitt Benckiser Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#TRANSURBAN">Transurban Group</div>
+                    <div class="mt4sOption" data-symbolname="#CLNX.MC">Cellnex Telecom, S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#ENTERPRISE">Enterprise Products</div>
+                    <div class="mt4sOption" data-symbolname="#QUALCOMM">QUALCOMM Incorporated</div>
+                    <div class="mt4sOption" data-symbolname="#SVT.L">Severn Trent plc</div>
+                    <div class="mt4sOption" data-symbolname="#TEXAS">Texas Instruments Incorporated</div>
+                    <div class="mt4sOption" data-symbolname="#ITRK.L">Intertek Group plc</div>
+                    <div class="mt4sOption" data-symbolname="#NAB">National Australia Bank</div>
+                    <div class="mt4sOption" data-symbolname="#UTDHEALTH">UnitedHealth Group Incorporated</div>
+                    <div class="mt4sOption" data-symbolname="#WESFARMERS">Wesfarmers limited</div>
+                    <div class="mt4sOption" data-symbolname="#IHG.L">InterContinental Hotels Group PLC</div>
+                    <div class="mt4sOption" data-symbolname="#PHILIPMRS">Philip Morris International Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#EATON">Eaton Corporation plc</div>
+                    <div class="mt4sOption" data-symbolname="#ICE">Intercontinental Exchange, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#LINDE">Linde PLC</div>
+                    <div class="mt4sOption" data-symbolname="#NOVARTIS">Novartis AG ADR</div>
+                    <div class="mt4sOption" data-symbolname="#SKYWORKS">Skyworks Solutions, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#MARRIOTT">Marriott International, Inc.</div>
+                    <div class="mt4sOption" data-symbolname="#ORACLE">Oracle Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#SCHW">The Charles Schwab Corporation</div>
+                    <div class="mt4sOption" data-symbolname="#TRADEDESK">The Trade Desk, Inc</div>
+                    <div class="mt4sOption" data-symbolname="#MONC.MI">Moncler S.p.A</div>
+                    <div class="mt4sOption" data-symbolname="#VNA.DE">Vonovia SE</div>
+                    <div class="mt4sOption" data-symbolname="#ANA.MC">Acciona, S.A. </div>
+                    <div class="mt4sOption" data-symbolname="#MRVL">Marvell Technology, Inc</div>
+                    <div class="mt4sOption" data-symbolname="#PROLOGIS">Prologis, Inc</div>
+                    <div class="mt4sOption" data-symbolname="#AENA.MC">Aena S.M.E., S.A.</div>
+                    <div class="mt4sOption" data-symbolname="#MONDELEZ">Mondelez International, Inc</div>
+                    <div class="mt4sOption" data-symbolname="#NWG.L">NatWest Group plc </div>
+                    <div class="mt4sOption" data-symbolname="#PAH3.DE">Porsche Automobil Holding SE</div>
+                    <div class="mt4sOption" data-symbolname="#TW.L">Taylor Wimpey plc</div>
+                    <div class="mt4sOption" data-symbolname="#ZIM">ZIM Integrated Shipping Services Ltd</div>
+                </div>
+
+                <div id="indices" class="mt4sGroupTitle">Indices</div>
+                <div id="mt4sGroup-indices" class="mt4sGroup">
+                    <div class="mt4sOption" data-symbolname="USA100">USA-Tech 100</div>
+                    <div class="mt4sOption" data-symbolname="CAD60">Canada 60</div>
+                    <div class="mt4sOption" data-symbolname="GER40">Germany 40</div>
+                    <div class="mt4sOption" data-symbolname="USA500">USA 500</div>
+                    <div class="mt4sOption" data-symbolname="AUS200">Australia 200</div>
+                    <div class="mt4sOption" data-symbolname="JPN225">Japan 225</div>
+                    <div class="mt4sOption" data-symbolname="FRA40">France 40</div>
+                    <div class="mt4sOption" data-symbolname="USA30">USA 30</div>
+                    <div class="mt4sOption" data-symbolname="CHINA50">China 50</div>
+                    <div class="mt4sOption" data-symbolname="EUR50">Europe 50</div>
+                    <div class="mt4sOption" data-symbolname="NL25">Netherlands 25</div>
+                    <div class="mt4sOption" data-symbolname="ITA40">Italy 40</div>
+                    <div class="mt4sOption" data-symbolname="ESP35">Spain 35</div>
+                    <div class="mt4sOption" data-symbolname="USA2000">USA 2000</div>
+                    <div class="mt4sOption" data-symbolname="UK100">UK 100</div>
+                    <div class="mt4sOption" data-symbolname="SWI20">Swiss 20</div>
+                    <div class="mt4sOption" data-symbolname="DOLLAR_INDX">USD Index</div>
+                    <div class="mt4sOption" data-symbolname="HK50">Hong Kong 50</div>
+                </div>
+
+                <div id="commodities" class="mt4sGroupTitle">Commodities</div>
+                <div id="mt4sGroup-commodities" class="mt4sGroup">
+                    <div class="mt4sOption" data-symbolname="GOLD">GOLD</div>
+                    <div class="mt4sOption" data-symbolname="CrudeOIL">Crude Oil (CL)</div>
+                    <div class="mt4sOption" data-symbolname="NATURAL_GAS">Natural Gas (NG)</div>
+                    <div class="mt4sOption" data-symbolname="SILVER">Silver</div>
+                    <div class="mt4sOption" data-symbolname="BRENT_OIL">Brent Oil (BZ)</div>
+                    <div class="mt4sOption" data-symbolname="PALLADIUM">Palladium</div>
+                    <div class="mt4sOption" data-symbolname="WHEAT">Wheat (ZW)</div>
+                    <div class="mt4sOption" data-symbolname="PLATINUM">Platinum</div>
+                    <div class="mt4sOption" data-symbolname="GASOLINE">Gasoline (RB)</div>
+                    <div class="mt4sOption" data-symbolname="COPPER">COPPER</div>
+                    <div class="mt4sOption" data-symbolname="GOLDGBP">XAU/GBP</div>
+                    <div class="mt4sOption" data-symbolname="HEATING_OIL">Heating Oil (HO)</div>
+                    <div class="mt4sOption" data-symbolname="GAUTRY">GAU/TRY</div>
+                    <div class="mt4sOption" data-symbolname="COTTON#2">Cotton (CT)</div>
+                    <div class="mt4sOption" data-symbolname="GAUUSD">GAU/USD</div>
+                    <div class="mt4sOption" data-symbolname="CORN">Corn (ZC)</div>
+                    <div class="mt4sOption" data-symbolname="SUGAR#11">Sugar (SB)</div>
+                    <div class="mt4sOption" data-symbolname="GOLDEUR">XAU/EUR</div>
+                    <div class="mt4sOption" data-symbolname="SOYBEAN">Soybeans (ZS)</div>
+                    <div class="mt4sOption" data-symbolname="GOLDTRY">GOLD/TRY</div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
