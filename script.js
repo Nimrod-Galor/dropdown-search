@@ -1,32 +1,47 @@
-
-let selectedGroups = ["currency", "stocks", "indices", "commodities"];
-
 document.addEventListener('click', (event) => {
     let targetId = event.target.id;
 
     if(document.getElementById("clSearchDd").contains(event.target)){
         switch(targetId){
+            case 'mt4GroupMinBtnCurrency':
+            case 'mt4GroupMaxBtnCurrency':
+                toggleGroup("currency");
+            break;
+            case 'mt4GroupMinBtnStocks':
+            case 'mt4GroupMaxBtnStocks':
+                toggleGroup("stocks");
+            break;
+            case 'mt4GroupMinBtnIndices':
+            case 'mt4GroupMaxBtnIndices':
+                toggleGroup("indices");
+            break;
+            case 'mt4GroupMinBtnCommodities':
+            case 'mt4GroupMaxBtnCommodities':
+                toggleGroup("commodities");
+            break;
             case 'searchWrapper':
                 //do nothing
                 break;
+            // open/close dropdown
             case 'mt4sEl':
-                //toggel symbols display
                 toggleSymbols();
                 break;
-            case '':// option item
+            // option item
+            case '':
                 // update input with user selected option item
                 document.getElementById("mt4SymbolSearch").value = event.target.innerHTML;
                 // update selected symbol name
-//console.log(event.target.dataset.symbolname);
                 document.getElementById("mt4sSelectedSymbol").value = event.target.dataset.symbolname;
                 updateFilter();
                 closeSymbols();
                 CalculateCurrentMt4Price();
                 break;
-            case 'mt4SymbolSearch':// search input
+            // search input
+            case 'mt4SymbolSearch':
                 openSymbols();
                 break;
-            default:// group title
+            // group title
+            default:
                 toggleGroup(targetId);
                 break;
         }
@@ -35,30 +50,25 @@ document.addEventListener('click', (event) => {
         closeSymbols();
     }
 });
-
+// close dropdown
 function closeSymbols(){
     document.getElementById("mt4Symbols").classList.add("hide");
 }
-
+// open dropdown
 function openSymbols(){
     document.getElementById("mt4Symbols").classList.remove("hide");
 }
-
+//toggle dropdown
 function toggleSymbols(){
     document.getElementById("mt4Symbols").classList.toggle("hide");
 }
-
+// toggle group
 function toggleGroup(selectedGroup){
     document.getElementById("mt4sGroup-" + selectedGroup).classList.toggle("hide");
-    // update selected group arr
-    let gindex = selectedGroups.indexOf(selectedGroup);
-    if(gindex === -1){
-        selectedGroups.push(selectedGroup);
-    }else{
-        selectedGroups.splice(gindex, 1);
-    }
+    // toggle min/max btn
+    document.getElementById(selectedGroup).classList.toggle("min");
 }
-
+// filter dropdown option items
 function updateFilter(){
     let filterStr = document.getElementById("mt4SymbolSearch").value.toLowerCase();
     let groups = document.getElementsByClassName("mt4sGroup");
@@ -67,10 +77,6 @@ function updateFilter(){
         //if empty searc string.. show group
         if(filterStr === ""){
             groups[gi].classList.remove("hide");
-            let currentGroup = groups[gi].id.replace("mt4sGroup-", "");
-            if(selectedGroups.indexOf(currentGroup) === -1){
-                selectedGroups.push(currentGroup);
-            }
         }
     
         // filter items

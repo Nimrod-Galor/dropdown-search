@@ -56,15 +56,36 @@
     background-color: #5d98f759;
     padding: 2px;
     cursor: pointer;
+    padding: 4px 2px 4px 10px;
+    border-top: 1px solid #efefef;
 }
 
 .mt4sGroupTitle:hover{
     background-color: #5d98f7ad;
 }
 
-/* .mt4sGroup{
-    
-} */
+.mt4GroupBtn{
+    float: right;
+    background-color: #e2e7ef59;
+    border: 1px solid #8b8b8b59;
+    padding: 0 5px;;
+}
+
+.mt4GroupBtn:hover{
+    background-color: #e2e7ef21;
+}
+
+.mt4GroupMaxBtn{
+    display: none;
+}
+
+.min .mt4GroupMaxBtn{
+    display: block;
+}
+
+.min .mt4GroupMinBtn{
+    display: none;
+}
 
 .mt4sOption{
     cursor: pointer;
