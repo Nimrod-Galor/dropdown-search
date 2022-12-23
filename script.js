@@ -84,6 +84,9 @@ function updateFilter(){
         for(let i=0; i<optionItems.length;i++){
             if(filterStr === ""){// show item
                 optionItems[i].style.display = "block";
+            }else if(optionItems[i].innerHTML.toLowerCase() == filterStr.toLowerCase()){// exact match show item
+                optionItems[i].style.display = "block";
+                CalculateCurrentMt4Price();
             }else if(optionItems[i].innerHTML.toLowerCase().indexOf(filterStr.toLowerCase()) != -1){// show item
                 optionItems[i].style.display = "block";
             }else{// hide item
