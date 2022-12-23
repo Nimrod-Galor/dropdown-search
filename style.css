@@ -34,12 +34,13 @@
     background-color: #e2e7ef59;
     width: 25px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1px;
+    top: 1px;
     line-height: 32px;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+    border-width: 0 1px 0 0;
 }
 
 .el:hover{
