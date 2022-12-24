@@ -1,22 +1,31 @@
 document.addEventListener('click', (event) => {
     let targetId = event.target.id;
-
+console.log(`targetId: ${targetId}`);
     if(document.getElementById("clSearchDd").contains(event.target)){
         switch(targetId){
-            case 'mt4GroupMinBtnCurrency':
-            case 'mt4GroupMaxBtnCurrency':
-                toggleGroup("currency");
+            // group title
+            case 'currencies':
+            case 'mt4GroupMinBtnCurrencies':
+            case 'mt4GroupMaxBtnCurrencies':
+            case "mt4GroupTitleCurrencies":
+                toggleGroup("currencies");
             break;
+            case 'stocks':
             case 'mt4GroupMinBtnStocks':
             case 'mt4GroupMaxBtnStocks':
+            case "mt4GroupTitleStocks":
                 toggleGroup("stocks");
             break;
+            case 'indices':
             case 'mt4GroupMinBtnIndices':
             case 'mt4GroupMaxBtnIndices':
+            case "mt4GroupTitleIndices":
                 toggleGroup("indices");
             break;
+            case 'commodities':
             case 'mt4GroupMinBtnCommodities':
             case 'mt4GroupMaxBtnCommodities':
+            case "mt4GroupTitleCommodities":
                 toggleGroup("commodities");
             break;
             case 'searchWrapper':
@@ -39,10 +48,6 @@ document.addEventListener('click', (event) => {
             // search input
             case 'mt4SymbolSearch':
                 openSymbols();
-                break;
-            // group title
-            default:
-                toggleGroup(targetId);
                 break;
         }
     }else{
@@ -77,6 +82,9 @@ function updateFilter(){
         //if empty searc string.. show group
         if(filterStr === ""){
             groups[gi].classList.remove("hide");
+            //reset min/max btn
+            let groupName = groups[gi].id.replace("mt4sGroup-", "");
+            document.getElementById(groupName).classList.remove("min");
         }
     
         // filter items

@@ -52,7 +52,7 @@
     width: 100%;
 }
 
-.mt4sGroupTitle{
+.mt4sGroupTitleWrapper{
     background-color: #5d98f759;
     padding: 2px;
     cursor: pointer;
@@ -60,7 +60,7 @@
     border-top: 1px solid #efefef;
 }
 
-.mt4sGroupTitle:hover{
+.mt4sGroupTitleWrapper:hover{
     background-color: #5d98f7ad;
 }
 
